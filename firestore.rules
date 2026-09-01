@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Published posts are world-readable; only signed-in admins write.
+    match /posts/{postId} {
+      allow read: if resource.data.status == 'published' || isSignedIn();
+      allow write: if isSignedIn();
+    }
+
+    // Submissions: created server-side via the Admin SDK (which bypasses these
+    // rules), so the public client needs no direct write access. Only admins
+    // may read/update from the browser.
+    match /submissions/{id} {
+      allow read, update, delete: if isSignedIn();
+      allow create: if false;
+    }
+
+    // Subscribers: anyone may add their email; only admins may read the list.
+    match /subscribers/{id} {
+      allow create: if true;
+      allow read, update, delete: if isSignedIn();
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+  }
+}

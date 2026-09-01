@@ -1,0 +1,145 @@
+// Verdict Vault — data model
+// Run `npx prisma db push` after setting DATABASE_URL in .env
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  READER
+  AUTHOR
+  EDITOR
+  ADMIN
+}
+
+enum PostStatus {
+  DRAFT
+  IN_REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String
+  role          Role      @default(READER)
+  passwordHash  String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  author        Author?
+  comments      Comment[]
+}
+
+model Author {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  name       String
+  role       String
+  bio        String   @db.Text
+  avatarUrl  String?
+  expertise  String[]
+  awards     String[]
+  linkedin   String?
+  x          String?
+  email      String?
+
+  userId     String?  @unique
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  posts      Post[]
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Category {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  name        String
+  description String  @db.Text
+  icon        String  @default("Gavel")
+
+  posts       Post[]
+}
+
+model Tag {
+  id    String @id @default(cuid())
+  slug  String @unique
+  name  String
+
+  posts Post[] @relation("PostTags")
+}
+
+model Post {
+  id           String     @id @default(cuid())
+  slug         String     @unique
+  title        String
+  excerpt      String     @db.Text
+  /// Structured block content — mirrors the ArticleBlock[] type in /types
+  body         Json
+  coverUrl     String?
+  status       PostStatus @default(DRAFT)
+  readingTime  Int        @default(5)
+  featured     Boolean    @default(false)
+  trending     Boolean    @default(false)
+  viewCount    Int        @default(0)
+
+  publishedAt  DateTime?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  authorId     String
+  author       Author     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  categoryId   String
+  category     Category   @relation(fields: [categoryId], references: [id])
+
+  tags         Tag[]      @relation("PostTags")
+  comments     Comment[]
+
+  @@index([status, publishedAt])
+  @@index([categoryId])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  body      String   @db.Text
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  parentId  String?
+  parent    Comment? @relation("CommentReplies", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies   Comment[] @relation("CommentReplies")
+
+  @@index([postId, approved])
+}
+
+model Subscriber {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  confirmed    Boolean  @default(false)
+  subscribedAt DateTime @default(now())
+}
+
+model MediaAsset {
+  id         String   @id @default(cuid())
+  url        String
+  alt        String?
+  width      Int?
+  height     Int?
+  mimeType   String?
+  uploadedAt DateTime @default(now())
+}
