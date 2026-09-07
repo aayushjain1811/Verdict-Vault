@@ -10,6 +10,7 @@ export const categories: Category[] = [
   { slug: "corporate-law", name: "Corporate Law", description: "Governance, M&A, and the machinery of the modern enterprise.", articleCount: 42, icon: "Building2" },
   { slug: "criminal-law", name: "Criminal Law", description: "Rights, procedure, and the architecture of due process.", articleCount: 31, icon: "Scale" },
   { slug: "civil-law", name: "Civil Law", description: "Contracts, torts, and the resolution of private disputes.", articleCount: 28, icon: "Handshake" },
+  { slug: "case-law", name: "Case Law", description: "Landmark judgments and the precedents that shape the law.", articleCount: 0, icon: "Gavel" },
   { slug: "constitutional-law", name: "Constitutional Law", description: "The foundational text and the doctrines built upon it.", articleCount: 19, icon: "Landmark" },
   { slug: "family-law", name: "Family Law", description: "Marriage, custody, and the law of private life.", articleCount: 24, icon: "Users" },
   { slug: "tax-law", name: "Tax Law", description: "Structure, compliance, and the calculus of obligation.", articleCount: 17, icon: "Receipt" },

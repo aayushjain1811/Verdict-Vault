@@ -20,6 +20,7 @@ const map: Record<string, LucideIcon> = {
   Receipt,
   KeyRound,
   Fingerprint,
+  Gavel,
 };
 
 export function CategoryIcon({

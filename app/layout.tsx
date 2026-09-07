@@ -3,6 +3,7 @@ import { Bodoni_Moda, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { SiteChrome } from "@/components/site-chrome";
+import { SplashScreen } from "@/components/splash-screen";
 import { AuthProvider } from "@/context/auth-context";
 
 // Bodoni Moda — hairline-contrast luxury display, the voice of the brand.
@@ -97,6 +98,7 @@ export default function RootLayout({
     <html lang="en" className={`${display.variable} ${read.variable} ${mono.variable}`}>
       <body className="grain min-h-screen antialiased">
         <AuthProvider>
+          <SplashScreen />
           <SmoothScroll>
             <SiteChrome>{children}</SiteChrome>
           </SmoothScroll>
