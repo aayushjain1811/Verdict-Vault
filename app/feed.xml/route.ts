@@ -1,6 +1,6 @@
 import { getPublishedArticles } from "@/lib/posts-server";
 
-const BASE = "https://verdictvault.example";
+const BASE = "https://verdictvault.co.in";
 
 export const revalidate = 60;
 

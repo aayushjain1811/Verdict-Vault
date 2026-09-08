@@ -40,8 +40,9 @@ export default async function HomePage() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Verdict Vault",
-    url: "https://verdictvault.example",
+    url: "https://verdictvault.co.in",
     slogan: "Where Law Meets Clarity",
+    logo: "https://verdictvault.co.in/icon.png",
     description:
       "A premium legal knowledge platform offering rigorous, accessible legal analysis.",
   };

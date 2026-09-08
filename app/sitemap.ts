@@ -3,7 +3,7 @@ import { categories } from "@/lib/data";
 import { getAuthorsFromPosts } from "@/lib/posts-server";
 import { getPublishedArticles } from "@/lib/posts-server";
 
-const BASE = "https://verdictvault.example";
+const BASE = "https://verdictvault.co.in";
 
 export const revalidate = 60;
 

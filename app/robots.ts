@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin"],
     },
-    sitemap: "https://verdictvault.example/sitemap.xml",
+    sitemap: "https://verdictvault.co.in/sitemap.xml",
   };
 }

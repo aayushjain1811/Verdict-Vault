@@ -26,7 +26,7 @@ export const authors: Author[] = [
     bio: "Adaeze spent a decade advising boards through cross-border transactions before turning to legal writing. She believes the best legal analysis reads like a well-argued brief and a good essay at once.",
     expertise: ["Mergers & Acquisitions", "Securities", "Corporate Governance"],
     awards: ["Legal Writer of the Year, 2024", "Financial Times Innovative Lawyers"],
-    social: { linkedin: "#", x: "#", email: "adaeze@verdictvault.example" },
+    social: { linkedin: "#", x: "#", email: "adaeze@verdictvault.co.in" },
   },
   {
     slug: "marcus-hale",
@@ -35,7 +35,7 @@ export const authors: Author[] = [
     bio: "A former public defender, Marcus writes about the parts of the law that decide who walks free. His work centers procedure, precedent, and the human stakes underneath both.",
     expertise: ["Criminal Procedure", "Civil Liberties", "Appellate Practice"],
     awards: ["National Press Foundation Fellow"],
-    social: { linkedin: "#", x: "#", email: "marcus@verdictvault.example" },
+    social: { linkedin: "#", x: "#", email: "marcus@verdictvault.co.in" },
   },
   {
     slug: "priya-nair",
@@ -43,7 +43,7 @@ export const authors: Author[] = [
     role: "Contributor · IP & Technology",
     bio: "Priya translates the frontier of technology law — from patent thickets to algorithmic accountability — into prose a founder can act on.",
     expertise: ["Patents", "Data Protection", "Technology Transactions"],
-    social: { linkedin: "#", x: "#", email: "priya@verdictvault.example" },
+    social: { linkedin: "#", x: "#", email: "priya@verdictvault.co.in" },
   },
 ];
 

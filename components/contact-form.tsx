@@ -20,7 +20,7 @@ export function ContactForm() {
     setValues((v) => ({ ...v, [field]: value }));
   }
 
-  function submit() {
+  async function submit() {
     if (!values.name.trim()) {
       setError("Add your name so we know who we're replying to.");
       setStatus("error");
@@ -40,11 +40,24 @@ export function ContactForm() {
     setError("");
     setStatus("sending");
 
-    // Replace with a server action or API route when the backend is connected.
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Could not send. Please try again.");
+        setStatus("error");
+        return;
+      }
       setStatus("sent");
       setValues({ name: "", email: "", subject: "", message: "" });
-    }, 900);
+    } catch {
+      setError("Network error. Please try again.");
+      setStatus("error");
+    }
   }
 
   return (

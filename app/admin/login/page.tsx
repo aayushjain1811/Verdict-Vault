@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@verdictvault.example"
+              placeholder="admin@verdictvault.co.in"
               className="w-full bg-transparent py-3 text-sm text-bone outline-none placeholder:text-ash"
             />
           </div>

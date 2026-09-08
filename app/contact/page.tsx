@@ -14,7 +14,7 @@ const details = [
   {
     icon: Mail,
     label: "Editorial desk",
-    value: "editors@verdictvault.example",
+    value: "editors@verdictvault.co.in",
     note: "Corrections, pitches, and reader questions.",
   },
   {

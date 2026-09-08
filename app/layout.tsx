@@ -30,7 +30,7 @@ const mono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://verdictvault.example";
+const siteUrl = "https://verdictvault.co.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
