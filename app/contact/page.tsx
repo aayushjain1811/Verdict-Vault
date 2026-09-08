@@ -14,13 +14,13 @@ const details = [
   {
     icon: Mail,
     label: "Editorial desk",
-    value: "editors@verdictvault.co.in",
+    value: "verdictvault2026@gmail.com",
     note: "Corrections, pitches, and reader questions.",
   },
   {
     icon: MapPin,
     label: "Office",
-    value: "DLF Cyber City, Gurugram",
+    value: "SCO No 3, Eminance plaza, Singpura Chowk, Zirakpur, Punjab - 140603",
     note: "Visits by appointment only.",
   },
   {
