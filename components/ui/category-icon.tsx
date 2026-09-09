@@ -8,6 +8,7 @@ import {
   KeyRound,
   Fingerprint,
   Gavel,
+  BookOpen,
   type LucideIcon,
 } from "lucide-react";
 
@@ -21,6 +22,7 @@ const map: Record<string, LucideIcon> = {
   KeyRound,
   Fingerprint,
   Gavel,
+  BookOpen,
 };
 
 export function CategoryIcon({

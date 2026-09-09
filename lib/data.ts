@@ -16,6 +16,7 @@ export const categories: Category[] = [
   { slug: "tax-law", name: "Tax Law", description: "Structure, compliance, and the calculus of obligation.", articleCount: 17, icon: "Receipt" },
   { slug: "property-law", name: "Property Law", description: "Title, tenancy, and the rules of ownership.", articleCount: 22, icon: "KeyRound" },
   { slug: "intellectual-property", name: "Intellectual Property", description: "Patents, marks, and the ownership of ideas.", articleCount: 26, icon: "Fingerprint" },
+  { slug: "general-legal", name: "General Legal", description: "Everyday legal questions and guidance that spans the disciplines.", articleCount: 0, icon: "BookOpen" },
 ];
 
 export const authors: Author[] = [
